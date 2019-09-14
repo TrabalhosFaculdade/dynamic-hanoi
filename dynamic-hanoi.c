@@ -26,12 +26,13 @@ void naiveHanoi(int n, char src, char dest, char temp) {
 //0 indica que não se tem calculado a resposta para o disco n
 //no movimento j.
 
-void auxDynamicHanoi(char memoMatrix[][6], int n, int index, char src, char dest, char temp) {
+void auxDynamicHanoi(char memoMatrix[][6], int n, int index, char *src, char *dest, char *temp) {
 	if(n == 0) return; //Caso base: quando n = 0, nenhum disco está sendo movido.
 	
 	if(memoMatrix[n][index] == 0) {
 		char *movimento = malloc(2 * sizeof(char));
-		movimento = strcat(src, dest);
+		strcat(movimento, dest);
+		strcat(movimento, src);
 
 		char *resultado =  malloc(sizeof(strcat(auxDynamicHanoi(memoMatrix, n-1, index, src, temp, dest), strcat(movimento, auxDynamicHanoi(memoMatrix, n-1, index, temp, dest, src)))));
 		resultado = strcat(auxDynamicHanoi(memoMatrix, n-1, index, src, temp, dest), strcat(movimento, auxDynamicHanoi(memoMatrix, n-1, index, temp, dest, src)));
@@ -48,7 +49,7 @@ void dynamicHanoi(int n, char src, char dest, char temp) {
 
 int main() {
 	int n;
-	char src = 'A', dest = 'B', temp = 'C';
+	char *src = "A", *dest = "B", *temp = "C";
 	
 	printf("\nNro de discos = ");
 	scanf(" %d", &n);
