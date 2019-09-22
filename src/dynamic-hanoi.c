@@ -1,10 +1,10 @@
-//Bárbara Este Fernandez - 31937039
+//BÃ¡rbara Este Fernandez - 31937039
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-//Implementação ingênua de Torres de Hanoi:
+//Implementaï¿½ï¿½o ingï¿½nua de Torres de Hanoi:
 void naiveHanoi(int n, char src, char dest, char temp) {
 	if(n > 0) {
 		naiveHanoi(n-1, src, temp, dest);
@@ -13,22 +13,22 @@ void naiveHanoi(int n, char src, char dest, char temp) {
 	}
 }
 
-//Implementação dinâmica de Torres de Hanoi usando memoization:
+//Implementaï¿½ï¿½o dinï¿½mica de Torres de Hanoi usando memoization:
 
-//Uma maneira de construir o algoritmo dinâmico para a Torres
-//de Hanoi é ter uma matriz para alocar os resultados, com n+1
+//Uma maneira de construir o algoritmo dinï¿½mico para a Torres
+//de Hanoi ï¿½ ter uma matriz para alocar os resultados, com n+1
 //linhas para cada disco e 6 colunas para cada possibilidade
-//de passagem de um disco de uma torre à outra (permutação de
-// três torres duas a duas).
+//de passagem de um disco de uma torre ï¿½ outra (permutaï¿½ï¿½o de
+// trï¿½s torres duas a duas).
 
 //Para qualquer [i][j], com 0 <= i < n+1 e j pertencente a
 //['src->dest', 'src->temp', 'dest->src', 'dest->temp', 'temp->src', 'temp->dest'],
-//0 indica que não se tem calculado a resposta para o disco n
+//0 indica que nï¿½o se tem calculado a resposta para o disco n
 //no movimento j.
 
 char *auxDynamicHanoi(char memoMatrix[][6][100], int n, int index, char *src, char *dest, char *temp) {
 	int i;
-	if(n == 0) return ""; //Caso base: quando n = 0, nenhum disco está sendo movido.
+	if(n == 0) return ""; //Caso base: quando n = 0, nenhum disco estï¿½ sendo movido.
 	
 	if(memoMatrix[n][index][0] == 0) {
 		char *movimento = malloc(2 * sizeof(char));
@@ -48,7 +48,7 @@ char *auxDynamicHanoi(char memoMatrix[][6][100], int n, int index, char *src, ch
 		
 		char *temp4 = malloc(sizeof(temp1) + sizeof(temp3));
 		strcat(temp4, temp1);
-		strcat(temp4, temp3); //Aqui o pointeiro temp4 contém o endereço para o resultado de n discos
+		strcat(temp4, temp3); //Aqui o pointeiro temp4 contï¿½m o endereï¿½o para o resultado de n discos
 
 		memoMatrix[n][index][0] = malloc(sizeof(temp4));
 		memoMatrix[n][index][0] = temp4;
@@ -64,7 +64,7 @@ char *auxDynamicHanoi(char memoMatrix[][6][100], int n, int index, char *src, ch
 }
 
 void dynamicHanoi(int n, char src, char dest, char temp) {
-	char memoMatrix[n+1][6][100]; //Inicializando a matriz de memoização
+	char memoMatrix[n+1][6][100]; //Inicializando a matriz de memoizaï¿½ï¿½o
 	auxDynamicHanoi(memoMatrix, n, 0, src, dest, temp);
 }
 
