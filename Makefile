@@ -4,7 +4,7 @@ BIN_DIR=bin
 SRC_DIR=src
 BIN_NAME=hanoi
 
-SRC_FILES=$(SRC_DIR)/dynamic-hanoi.c
+SRC_FILES=$(SRC_DIR)/dynamic-hanoi-testing.c
 
 all:
 	mkdir -p bin
