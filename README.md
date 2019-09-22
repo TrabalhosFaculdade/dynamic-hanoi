@@ -12,4 +12,4 @@ $ make clean       # to clean generated binary
 | ------------- | ------------- |
 | Bárbara Este Fernandez  |  31937039  |
 |  Daniel Dias de Lima   |  31687679  |
-|  Lucas Morita    | XXXXXXXX  |
+|  Lucas Morita    | 31826199  |
